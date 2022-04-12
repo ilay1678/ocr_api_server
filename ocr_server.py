@@ -61,7 +61,7 @@ class Server(object):
         else:
             raise Exception(f"不支持的滑块算法类型: {algo_type}")
 
-server = Server(ocr=args.ocr, det=args.det, old=args.old)
+server = Server(ocr=True, det=True, old=False)
 
 
 def get_img(request, img_type='file', img_name='image'):
@@ -123,4 +123,4 @@ def ping():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=args.port)
+    app.run(host='127.0.0.1', threaded=True, debug=True)
